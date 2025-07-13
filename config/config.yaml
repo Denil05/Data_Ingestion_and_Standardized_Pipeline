@@ -1,0 +1,55 @@
+csv_sources:
+  - path: "data/raw/customers.csv"
+    column_mapping:
+      customer_id: id
+      customer_name: name
+      customer_email: email
+      campaign_name: campaign
+      signup_date: date
+    validation:
+      id:
+        required: true
+        type: int
+      email:
+        required: true
+        type: str
+        pattern: "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+excel_sources:
+  - path: "data/raw/customers.xlsx"
+    column_mapping:
+      customer_id: id
+      customer_name: name
+      customer_email: email
+      campaign_name: campaign
+      signup_date: date
+    validation:
+      id:
+        required: true
+        type: int
+      email:
+        required: true
+        type: str
+        pattern: "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+sql_sources:
+  - connection_string: "sqlite:///data/raw/sample.db"
+    table: "campaign_data"
+    column_mapping:
+      id: id
+      name: name
+      email: email
+      campaign: campaign
+      date: date
+    validation:
+      id:
+        required: true
+        type: int
+      email:
+        required: true
+        type: str
+        pattern: "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+standard_schema:
+  - id
+  - name
+  - email
+  - campaign
+  - date 
